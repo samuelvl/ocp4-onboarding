@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/samuelvl/ocp4-onboarding.git
     path: kustomize
-    targetRevision: main
+    targetRevision: master
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
