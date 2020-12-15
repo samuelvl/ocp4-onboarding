@@ -2,11 +2,11 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: example-a
+  name: frontend-cart
   labels:
     openshift.io/cluster-logging: "true"
     openshift.io/cluster-monitoring: "true"
   annotations:
-    openshift.io/display-name: Hello World
-    openshift.io/description: Hello world deployment
+    openshift.io/display-name: Frontend cart
+    openshift.io/description: Frontend cart deployment
     openshift.io/requester: Kustomize
