@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: example-a
+  labels:
+    openshift.io/cluster-logging: "true"
+    openshift.io/cluster-monitoring: "true"
+  annotations:
+    openshift.io/display-name: Hello World
+    openshift.io/description: Hello world deployment
+    openshift.io/requester: Kustomize

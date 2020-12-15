@@ -1,0 +1,19 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend-cart
+  namespace: argocd
+spec:
+  project: my-org
+  source:
+    repoURL: https://github.com/samuelvl/argocd-examples.git
+    path: frontend-cart-apps
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: frontend-cart
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,9 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - manifests/service-accounts/cicd-deployer.yml
+  - manifests/rbac/cicd-deployer.yml
+  - manifests/network-policies/allow-from-openshift-ingress.yml
+  - manifests/network-policies/allow-from-openshift-monitoring.yml
+  - manifests/network-policies/allow-from-same-namespace.yml

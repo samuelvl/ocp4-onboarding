@@ -1,0 +1,29 @@
+---
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: example
+  namespace: openshift-config
+parameters:
+  - name: PROJECT_NAME
+  - name: PROJECT_DISPLAYNAME
+  - name: PROJECT_DESCRIPTION
+  - name: PROJECT_ADMIN_USER
+  - name: PROJECT_REQUESTING_USER
+objects:
+  - apiVersion: project.openshift.io/v1
+    kind: Project
+    metadata:
+      name: ${PROJECT_NAME}
+      annotations:
+        openshift.io/description: ${PROJECT_DESCRIPTION}
+        openshift.io/display-name: ${PROJECT_DISPLAYNAME}
+        openshift.io/requester: ${PROJECT_REQUESTING_USER}
+  # Manage ResourceQuota, LimitRange, NetworkPolicy, RoleBinding, etc
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: example
+      namespace: ${PROJECT_NAME}
+    data:
+      text: "Hello world!"
