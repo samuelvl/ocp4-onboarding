@@ -1,0 +1,15 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: argocd-examples
+spec:
+  description: Deploy argocd-examples
+  sourceRepos:
+    - https://github.com/samuelvl/argocd-examples.git
+  destinations:
+    - namespace: frontend* # frontend-pre, frontend-dev, etc
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'

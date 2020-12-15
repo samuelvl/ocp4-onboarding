@@ -85,12 +85,24 @@ kustomize build kustomize | oc apply -f -
 
 == ArgoCD
 
+Control in which namespace the repository code can be deployed.
+
+[source,bash]
+----
+include::argocd/projects/argocd-examples.yml[]
+
+oc apply -f argocd/projects/argocd-examples.yml
+----
+
 Configure an ArgoCD `+Application+` to synchronize the projects managed by Kustomize.
 
 [source,bash]
 ----
-include::argocd/onboarding-app.yml[]
+include::argocd/apps/onboarding.yml[]
+
+oc apply -f argocd/apps/onboarding.yml
 ----
+
 
 == References
 

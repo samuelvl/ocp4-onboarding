@@ -5,7 +5,7 @@ metadata:
   name: frontend-cart
   namespace: argocd
 spec:
-  project: my-org
+  project: argocd-examples
   source:
     repoURL: https://github.com/samuelvl/argocd-examples.git
     path: frontend-cart-apps
