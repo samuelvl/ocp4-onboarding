@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/samuelvl/argocd-examples.git
     path: frontend-cart-apps
-    targetRevision: main
+    targetRevision: master
   destination:
     server: https://kubernetes.default.svc
     namespace: frontend-cart
