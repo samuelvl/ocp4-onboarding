@@ -107,3 +107,4 @@ oc apply -f argocd/apps/onboarding.yml
 == References
 
 - https://docs.openshift.com/container-platform/4.6/applications/projects/configuring-project-creation.html
+- https://github.com/kubernetes-sigs/kustomize
