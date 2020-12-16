@@ -5,4 +5,4 @@ namespace: {{ namespace_name }}
 bases:
   - ../../../base
 resources:
-  - manifests/example.yml
+  - manifests/namespace.yml
