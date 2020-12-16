@@ -2,7 +2,7 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: https
+  name: gui
   labels:
     application: hello-world
 spec:
