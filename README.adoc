@@ -27,7 +27,7 @@ Set this template as the default one for new projects.
 oc patch project.config cluster \
     --type=merge \
     --patch \
-    '{"spec":{"projectRequestTemplate":{"name":"example"}}}'
+    '{"spec":{"projectRequestTemplate":{"name":"example"}}}' # One single template for every project
 ----
 
 Create a new project to verify if the default resources are created.
@@ -40,6 +40,8 @@ oc get configmap example -n onboarding-project-testing -o jsonpath='{.data.text}
 oc create namespace onboarding-namespace-testing
 oc get configmap -n onboarding-namespace-testing # Template is not applied
 ----
+
+If the template is updated, it doesn't apply to old projects.
 
 == Kustomize
 
@@ -59,7 +61,7 @@ Create a new namespace folder from skeleton example.
 # ├── namespace
 # │   ├── kustomization.yml
 # │   └── manifests
-# │       └── example.yml
+# │       └── namespace.yml
 # └── argocd
 #     └── application.yml
 cp -r kustomize/namespaces/skeleton kustomize/namespaces/new-project
