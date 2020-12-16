@@ -1,4 +1,9 @@
 ---
+apiVersion: v1
 kind: Namespace
 metadata:
   name: bigdata-orders
+  annotations:
+    openshift.io/display-name: Bigdata orders
+    openshift.io/description: Bigdata orders deployment
+    openshift.io/requester: Kustomize
