@@ -2,17 +2,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: frontend-cart
+  name: bigdata-orders
   namespace: argocd
 spec:
-  project: argocd-examples
+  project: ocp4-examples
   source:
     repoURL: https://github.com/samuelvl/ocp4-examples.git
-    path: frontend-cart
+    path: bigdata-orders
     targetRevision: master
   destination:
     server: https://kubernetes.default.svc
-    namespace: frontend-cart
+    namespace: bigdata-orders
   syncPolicy:
     automated:
       prune: true

@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: hard-quota-resources
+spec:
+  hard:
+    requests.cpu: 8000m
+    requests.memory: 64Gi
+    limits.cpu: 8000m
+    limits.memory: 64Gi
+  scopes:
+    - NotTerminating
+
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: hard-quota-storage
+spec:
+  hard:
+    persistentvolumeclaims: "10"
+
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: hard-quota-svc
+spec:
+  hard:
+    services.nodeports: "0"
+    services.loadbalancers: "0"
