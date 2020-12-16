@@ -5,7 +5,7 @@ metadata:
   name: frontend-cart
   namespace: argocd
 spec:
-  project: argocd-examples
+  project: ocp4-examples
   source:
     repoURL: https://github.com/samuelvl/ocp4-examples.git
     path: frontend-cart

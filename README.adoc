@@ -85,15 +85,6 @@ kustomize build kustomize | oc apply -f -
 
 == ArgoCD
 
-Control in which namespace the repository code can be deployed.
-
-[source,bash]
-----
-include::argocd/projects/ocp4-examples.yml[]
-
-oc apply -f argocd/projects/ocp4-examples.yml
-----
-
 Configure an ArgoCD `+Application+` to synchronize the projects managed by Kustomize.
 
 [source,bash]
@@ -103,6 +94,25 @@ include::argocd/apps/onboarding.yml[]
 oc apply -f argocd/apps/onboarding.yml
 ----
 
+Control in which namespace the repository code can be deployed.
+
+[source,bash]
+----
+include::argocd/projects/ocp4-examples.yml[]
+
+oc apply -f argocd/projects
+----
+
+Create a new repository `+ocp4-examples+` to verify if applications can be deployed in their corresponding namespaces.
+
+[source,bash]
+----
+gh repo create ocp4-examples --public
+git clone git@github.com:samuelvl/ocp4-examples.git
+cp -r ocp4-examples-base/* ocp4-examples
+cd ocp4-examples
+git add . && git commit -am "Deploy applications using argocd" && git push
+----
 
 == References
 

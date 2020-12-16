@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: html-content
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+        <body>
+            Frontend cart deployed by ArgoCD.
+        </body>
+    </html>

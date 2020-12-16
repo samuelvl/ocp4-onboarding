@@ -1,0 +1,25 @@
+= Openshift 4 examples
+
+Deploy some Openshift 4 examples.
+
+== Frontend Cart
+
+Deploy me by running the following command:
+
+[source,bash]
+----
+oc apply -f frontend-cart
+----
+
+== Bigdata Orders
+
+Deploy me by running the following command:
+
+[source,bash]
+----
+oc apply -f bigdata-orders
+----
+
+== References
+
+- https://kubernetes.io/es/docs/concepts/workloads/controllers/deployment
