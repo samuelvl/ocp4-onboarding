@@ -87,6 +87,38 @@ kustomize build kustomize | oc apply -f -
 
 == ArgoCD
 
+Install ArgoCD using upstream manifests.
+
+[source,bash]
+----
+oc create ns argocd
+oc apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+oc apply -f argocd/installation/route.yml
+----
+
+If using a private Git repository, configure credentials.
+
+[source,bash]
+----
+oc create secret generic git-repository -n argocd \
+    --from-literal='username=${GIT_USER}' \
+    --from-literal='token=${GIT_TOKEN}'
+----
+
+Update the `+ConfigMap+` to refresh ArgoCD configuration.
+
+[source,bash]
+----
+oc apply -f argocd/installation/argocd-cm.yml
+----
+
+Create ArgoCD projects to restrict what and where apps may be deployed, what kinds of objects may or may not be deployed and defining project roles to provide application RBAC.
+
+[source,bash]
+----
+oc apply -f argocd/projects
+----
+
 Configure an ArgoCD `+Application+` to synchronize the projects managed by Kustomize.
 
 [source,bash]
@@ -96,16 +128,7 @@ include::argocd/apps/onboarding.yml[]
 oc apply -f argocd/apps/onboarding.yml
 ----
 
-Control in which namespace the repository code can be deployed.
-
-[source,bash]
-----
-include::argocd/projects/ocp4-examples.yml[]
-
-oc apply -f argocd/projects
-----
-
-Create a new repository `+ocp4-examples+` to verify if applications can be deployed in their corresponding namespaces.
+Create a new repository `+ocp4-examples+` to verify if applications are deployed in their corresponding namespaces.
 
 [source,bash]
 ----
